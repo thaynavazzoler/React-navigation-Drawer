@@ -1,20 +1,22 @@
+import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "./src/screens/Home";
-import Profile from "./src/screens/Profile";
-import Contact from "./src/screens/Contact";
+import Home from "./src/screens/Home/index.jsx";
+import Contact from "./src/screens/Contact/index.jsx";
+import Profile from "./src/screens/Profile/index.jsx";
 
-const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Profile" component={Profile} />
-        <Tab.Screen name="Contact" component={Contact} />
-      </Tab.Navigator>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Contact" component={Contact} />
+        <Drawer.Screen name="Profile" component={Profile} />
+      </Drawer.Navigator>
+      <StatusBar style="auto" />
     </NavigationContainer>
   );
 }
